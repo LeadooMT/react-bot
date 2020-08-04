@@ -8,13 +8,25 @@
     "build": "run-s clean build:web",
     "build:web": "webpack --mode production --config webpack.config.js",
     "clean": "rimraf ./dist",
+    "format": "prettier --write '{source,stories}/**/*.{ts,tsx,js,jsx}'",
     "storybook": "NODE_PATH=source start-storybook",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test:format",
+    "test:format": "prettier-check '{source,stories}/**/*.{ts,tsx,js,jsx}'"
   },
   "files": [
     "dist/**/*",
     "*.md"
   ],
+  "lint-staged": {
+    "{source,stories}/**/*.{ts,tsx,js,jsx}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LeadooMT/react-bot.git"
@@ -37,8 +49,13 @@
     "@babel/preset-react": "^7.10.4",
     "@storybook/react": "^5.3.19",
     "@types/react": "^16.9.44",
+    "@types/react-dom": "^16.9.8",
     "babel-loader": "^8.1.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.1",
+    "prettier-check": "^2.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "rimraf": "^3.0.2",
