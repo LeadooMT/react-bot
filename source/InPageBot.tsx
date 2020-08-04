@@ -4,6 +4,7 @@ import { destroyBot, generateAPIName } from "./helpers";
 
 const { useEffect, useRef, useState } = React;
 
+const NOOP = () => {};
 const URL_BASE = "http://localhost:10300/bot/inpage.js?code=";
 
 function getBotURL(code: BotCode, apiName: string, seamless: boolean): string {
@@ -22,25 +23,36 @@ export function InPageBot(props: InPageBotProps) {
     // Init
     const {
         code,
-        seamless = true
+        seamless = false
     } = props;
     // Hooks
-    const [apiName] = useState(generateAPIName());
-    const [botURL] = useState(getBotURL(code, apiName, seamless));
+    const [apiName, setAPIName] = useState(generateAPIName());
+    const [botURL, setBotURL] = useState(null);
+    // const [botURL] = useState(getBotURL(code, apiName, seamless));
     const containerRef = useRef(null);
     const mountedRef = useRef(null);
+    useEffect(() => { // API name change
+        if (apiName) {
+            setBotURL(getBotURL(code, apiName, seamless));
+        }
+    }, [apiName]);
     useEffect(() => { // Attaching script
-        if (containerRef.current) {
+        if (containerRef.current && botURL) {
             const script = mountedRef.current = document.createElement("script");
             script.src = botURL;
             containerRef.current.appendChild(script);
+        } else {
+            return NOOP;
         }
         return () => { // Unmount
+            console.log("UNMOUNT");
             destroyBot(apiName).catch(err => {
                 console.error("Failed cleaning up bot:", err);
             });
+            // Reset API name
+            setAPIName(generateAPIName());
         };
-    }, [containerRef.current]);
+    }, [botURL, containerRef.current]);
     // Output
     return (
         <div ref={containerRef}>

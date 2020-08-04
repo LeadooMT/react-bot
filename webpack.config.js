@@ -1,4 +1,5 @@
 const path = require("path");
+const statements = require("tsx-control-statements").default;
 const pkg = require('./package.json');
 
 module.exports = {
@@ -25,13 +26,12 @@ module.exports = {
                                     },
                                     "useBuiltIns": false
                                 }]
-                            ],
-                            plugins: [
-                                "jsx-control-statements"
                             ]
                         }
                     },
-                    { loader: "ts-loader" }
+                    {
+                        loader: "ts-loader"
+                    }
                 ]
             }
         ]
