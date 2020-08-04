@@ -27,6 +27,12 @@ The bots used within these components are **2nd Generation** - please see your L
 
 ## Usage
 
+Install by running the following:
+
+```shell
+npm install @leadoo/react-bot --save-dev
+```
+
 You can import separate bot components to use in your website:
 
 ```jsx
