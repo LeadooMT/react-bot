@@ -3,10 +3,17 @@
   "version": "0.0.0",
   "description": "React components for Leadoo bots",
   "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "webpack --mode production --config webpack.config.js",
+    "build": "run-s clean build:web",
+    "build:web": "webpack --mode production --config webpack.config.js",
+    "clean": "rimraf ./dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "dist/**/*",
+    "*.md"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LeadooMT/react-bot.git"
@@ -30,8 +37,10 @@
     "@types/react": "^16.9.44",
     "babel-loader": "^8.1.0",
     "babel-plugin-jsx-control-statements": "^4.1.0",
+    "npm-run-all": "^4.1.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "rimraf": "^3.0.2",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
     "webpack": "^4.44.1",
