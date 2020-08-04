@@ -3,11 +3,13 @@ import { InPageBot } from "../source/index";
 
 const { useEffect, useState } = React;
 
+const DEMO_CODE = "Xc7Ug0gi";
+
 export default { title: "InPageBot" };
 
-export const framed = () => <InPageBot code="DNAQUWHF" />;
+export const framed = () => <InPageBot code={DEMO_CODE} />;
 
-export const seamless = () => <InPageBot code="DNAQUWHF" seamless />;
+export const seamless = () => <InPageBot code={DEMO_CODE} seamless />;
 
 export const afterBeingUnmounted = () => {
     const [destroyed, setDestroyed] = useState(false);
@@ -28,10 +30,10 @@ export const afterBeingUnmounted = () => {
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mattis feugiat nunc, eu venenatis purus imperdiet vitae. Nam quis eros non diam blandit dignissim id in quam. Nam sed nisi a nibh mattis lobortis ut vel turpis. Duis tristique sodales rhoncus. Morbi ligula elit, aliquam sit amet finibus ac, euismod ac nisi. Donec sagittis enim enim, a interdum lacus accumsan ac. Cras gravida enim eget facilisis varius. Integer at dui suscipit, pretium ligula non, vestibulum erat. Vivamus tempor consequat urna. Praesent luctus turpis eu orci aliquam, varius semper augue ornare. Praesent lacinia dictum felis, fermentum faucibus tortor efficitur quis. Nulla sit amet arcu ante. Aliquam dapibus eros at est mollis cursus. Donec sed libero feugiat, iaculis leo in, ornare ante. Nunc lectus magna, mollis sed vehicula ut, pulvinar vel est.</p>
             <div>
                 {!destroyed && (
-                    <InPageBot code="DNAQUWHF" />
+                    <InPageBot code={DEMO_CODE} />
                 )}
                 {destroyed && (
-                    <InPageBot code="DNAQUWHF" seamless />
+                    <InPageBot code={DEMO_CODE} seamless />
                 )}
             </div>
             {!destroyed && (

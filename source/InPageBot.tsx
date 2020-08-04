@@ -5,7 +5,7 @@ import { destroyBot, generateAPIName } from "./helpers";
 const { useEffect, useRef, useState } = React;
 
 const NOOP = () => {};
-const URL_BASE = "http://localhost:10300/bot/inpage.js?code=";
+const URL_BASE = "https://bot.leadoo.com/bot/inpage.js?code=";
 
 function getBotURL(code: BotCode, apiName: string, seamless: boolean): string {
     let url = `${URL_BASE}${code}`;
@@ -28,7 +28,6 @@ export function InPageBot(props: InPageBotProps) {
     // Hooks
     const [apiName, setAPIName] = useState(generateAPIName());
     const [botURL, setBotURL] = useState(null);
-    // const [botURL] = useState(getBotURL(code, apiName, seamless));
     const containerRef = useRef(null);
     const mountedRef = useRef(null);
     useEffect(() => { // API name change
@@ -45,7 +44,6 @@ export function InPageBot(props: InPageBotProps) {
             return NOOP;
         }
         return () => { // Unmount
-            console.log("UNMOUNT");
             destroyBot(apiName).catch(err => {
                 console.error("Failed cleaning up bot:", err);
             });
