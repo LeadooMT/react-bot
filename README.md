@@ -1,6 +1,8 @@
 # React Bots
 > React components for Leadoo bots
 
+[![Build Status](https://travis-ci.org/LeadooMT/react-bot.svg?branch=master)](https://travis-ci.org/LeadooMT/react-bot)
+
 ![Leadoo In-Page bot demo](demo.png)
 
 This UI library provides components and helpers for using [Leadoo](https://leadoo.com/) bots within React environments.
