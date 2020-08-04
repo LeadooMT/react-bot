@@ -21,29 +21,29 @@ function getBotURL(code: BotCode, apiName: string, seamless: boolean): string {
 
 export function InPageBot(props: InPageBotProps) {
     // Init
-    const {
-        code,
-        seamless = false
-    } = props;
+    const { code, seamless = false } = props;
     // Hooks
     const [apiName, setAPIName] = useState(generateAPIName());
     const [botURL, setBotURL] = useState(null);
     const containerRef = useRef(null);
     const mountedRef = useRef(null);
-    useEffect(() => { // API name change
+    useEffect(() => {
+        // API name change
         if (apiName) {
             setBotURL(getBotURL(code, apiName, seamless));
         }
     }, [apiName]);
-    useEffect(() => { // Attaching script
+    useEffect(() => {
+        // Attaching script
         if (containerRef.current && botURL) {
-            const script = mountedRef.current = document.createElement("script");
+            const script = (mountedRef.current = document.createElement("script"));
             script.src = botURL;
             containerRef.current.appendChild(script);
         } else {
             return NOOP;
         }
-        return () => { // Unmount
+        return () => {
+            // Unmount
             destroyBot(apiName).catch(err => {
                 console.error("Failed cleaning up bot:", err);
             });
@@ -52,9 +52,5 @@ export function InPageBot(props: InPageBotProps) {
         };
     }, [botURL, containerRef.current]);
     // Output
-    return (
-        <div ref={containerRef}>
-            {/* Script gets inserted here */}
-        </div>
-    );
+    return <div ref={containerRef}>{/* Script gets inserted here */}</div>;
 }

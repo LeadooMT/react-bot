@@ -10,9 +10,9 @@ export interface LeadooWindow extends Window {
         Chat: Object;
         Custom: {
             [key: string]: {
-                destroy: () => Promise<void>
-            }
+                destroy: () => Promise<void>;
+            };
         };
         InPage: Object;
-    }
+    };
 }
