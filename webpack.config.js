@@ -1,5 +1,4 @@
 const path = require("path");
-const statements = require("tsx-control-statements").default;
 const pkg = require('./package.json');
 
 module.exports = {
