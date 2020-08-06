@@ -11,3 +11,9 @@ export function destroyBot(apiName: string): Promise<void> {
 export function generateAPIName(): string {
     return `_reactBot${Math.floor(Math.random() * 999999)}`;
 }
+
+export function generateScript(src: string): HTMLScriptElement {
+    const script = document.createElement("script");
+    script.src = src;
+    return script;
+}

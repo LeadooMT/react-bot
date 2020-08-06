@@ -1,6 +1,6 @@
 import * as React from "react";
 import { BotCode, InPageBotProps } from "./types";
-import { destroyBot, generateAPIName } from "./helpers";
+import { destroyBot, generateAPIName, generateScript as _generateScript } from "./helpers";
 
 const { useEffect, useRef, useState } = React;
 
@@ -33,7 +33,7 @@ function getBotURL(
 
 export function InPageBot(props: InPageBotProps) {
     // Init
-    const { code, mediaPartner = null, seamless = false } = props;
+    const { code, generateScript = _generateScript, mediaPartner = null, seamless = false } = props;
     // Hooks
     const [apiName, setAPIName] = useState(generateAPIName());
     const [botURL, setBotURL] = useState(null);
@@ -48,8 +48,7 @@ export function InPageBot(props: InPageBotProps) {
     useEffect(() => {
         // Attaching script
         if (containerRef.current && botURL) {
-            const script = (mountedRef.current = document.createElement("script"));
-            script.src = botURL;
+            const script = (mountedRef.current = generateScript(botURL));
             containerRef.current.appendChild(script);
         } else {
             return NOOP;
