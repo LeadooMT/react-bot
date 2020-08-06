@@ -47,6 +47,16 @@ export const MyComponent = () => (
 );
 ```
 
+### Development
+
+Once cloned, execute `npm install` in the root of this project using at least NodeJS version 10.
+
+You can develop on this repository, having the files watched for changes, by running `npm run dev`. To build a production copy in the `dist` directory, run `npm run build`. You can run the tests by executing `npm test`.
+
+When **publishing**, make sure to use the `np` module, installed globally. Make sure to update the `CHANGELOG.md` file beforehand with your changes.
+
+To **preview** the components in this repository, run `npm run storybook` to open the component stories in your browser.
+
 ## API
 
 ### InPageBot

@@ -8,6 +8,7 @@
     "build": "run-s clean build:web",
     "build:web": "webpack --mode production --config webpack.config.js",
     "clean": "rimraf ./dist",
+    "dev": "npm run clean && webpack --mode development --config webpack.config.js --watch",
     "format": "prettier --write '{source,stories}/**/*.{ts,tsx,js,jsx}'",
     "prepublishOnly": "npm run build",
     "storybook": "NODE_PATH=source start-storybook",
