@@ -1,5 +1,10 @@
 # React Bots Changelog
 
+## v0.2.0
+_2020-08-06_
+
+ * Media Partner configuration
+
 ## v0.1.1
 _2020-08-04_
 
