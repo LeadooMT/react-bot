@@ -108,7 +108,7 @@ export const MyApp = () => (
 );
 ```
 
-Make sure to read the Media Partner concept description.
+Make sure to read the [Media Partner concept description](#media-partner).
 
 ## Concepts
 
