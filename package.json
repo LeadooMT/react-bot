@@ -8,18 +8,20 @@
     "build": "run-s clean build:web",
     "build:web": "webpack --mode production --config webpack.config.js",
     "clean": "rimraf ./dist",
-    "format": "prettier --write '{source,stories}/**/*.{ts,tsx,js,jsx}'",
+    "dev": "npm run clean && webpack --mode development --config webpack.config.js --watch",
+    "format": "prettier --write '{source,stories,test}/**/*.{ts,tsx,js,jsx}'",
     "prepublishOnly": "npm run build",
     "storybook": "NODE_PATH=source start-storybook",
-    "test": "npm run test:format",
-    "test:format": "prettier-check '{source,stories}/**/*.{ts,tsx,js,jsx}'"
+    "test": "run-s test:specs test:format",
+    "test:format": "prettier-check '{source,stories,test}/**/*.{ts,tsx,js,jsx}'",
+    "test:specs": "jest"
   },
   "files": [
     "dist/**/*",
     "*.md"
   ],
   "lint-staged": {
-    "{source,stories}/**/*.{ts,tsx,js,jsx}": [
+    "{source,stories,test}/**/*.{ts,tsx,js,jsx}": [
       "prettier --write"
     ]
   },
@@ -31,6 +33,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LeadooMT/react-bot.git"
+  },
+  "jest": {
+    "preset": "ts-jest"
   },
   "keywords": [
     "leadoo",
@@ -49,10 +54,13 @@
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "@storybook/react": "^5.3.19",
+    "@types/jest": "^26.0.9",
     "@types/react": "^16.9.44",
     "@types/react-dom": "^16.9.8",
+    "babel-jest": "^26.2.2",
     "babel-loader": "^8.1.0",
     "husky": "^4.2.5",
+    "jest": "^26.2.2",
     "lint-staged": "^10.2.11",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
@@ -60,6 +68,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "rimraf": "^3.0.2",
+    "ts-jest": "^26.1.4",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
     "webpack": "^4.44.1",

@@ -1,14 +1,26 @@
 import * as React from "react";
 import { BotCode, InPageBotProps } from "./types";
-import { destroyBot, generateAPIName } from "./helpers";
+import { destroyBot, generateAPIName, generateScript as _generateScript } from "./helpers";
 
 const { useEffect, useRef, useState } = React;
 
 const NOOP = () => {};
-const URL_BASE = "https://bot.leadoo.com/bot/inpage.js?code=";
+const PATH_MP = "/bot/mp/inpage.js?code=";
+const PATH_STANDARD = "/bot/inpage.js?code=";
+const URL_BASE = "https://bot.leadoo.com";
 
-function getBotURL(code: BotCode, apiName: string, seamless: boolean): string {
-    let url = `${URL_BASE}${code}`;
+function getBotURL(
+    code: BotCode,
+    apiName: string,
+    seamless: boolean,
+    mediaPartner: string
+): string {
+    let url: string;
+    if (mediaPartner) {
+        url = `${URL_BASE}${PATH_MP}${code}&media=${encodeURIComponent(mediaPartner)}`;
+    } else {
+        url = `${URL_BASE}${PATH_STANDARD}${code}`;
+    }
     const fragments = [`api=${apiName}`];
     if (seamless) {
         fragments.push("seamless");
@@ -21,7 +33,7 @@ function getBotURL(code: BotCode, apiName: string, seamless: boolean): string {
 
 export function InPageBot(props: InPageBotProps) {
     // Init
-    const { code, seamless = false } = props;
+    const { code, generateScript = _generateScript, mediaPartner = null, seamless = false } = props;
     // Hooks
     const [apiName, setAPIName] = useState(generateAPIName());
     const [botURL, setBotURL] = useState(null);
@@ -30,14 +42,13 @@ export function InPageBot(props: InPageBotProps) {
     useEffect(() => {
         // API name change
         if (apiName) {
-            setBotURL(getBotURL(code, apiName, seamless));
+            setBotURL(getBotURL(code, apiName, seamless, mediaPartner));
         }
     }, [apiName]);
     useEffect(() => {
         // Attaching script
         if (containerRef.current && botURL) {
-            const script = (mountedRef.current = document.createElement("script"));
-            script.src = botURL;
+            const script = (mountedRef.current = generateScript(botURL));
             containerRef.current.appendChild(script);
         } else {
             return NOOP;
