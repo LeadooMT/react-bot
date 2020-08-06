@@ -2,6 +2,7 @@ export type BotCode = string;
 
 export interface InPageBotProps {
     code: BotCode;
+    mediaPartner?: string;
     seamless?: boolean;
 }
 
