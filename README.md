@@ -112,7 +112,7 @@ Make sure to read the [Media Partner concept description](#media-partner).
 
 ### VisualBot
 
-In-Page bot wrapper. Import using `{ VisualBot }`.
+Visual bot wrapper. Import using `{ VisualBot }`.
 
 Properties:
 
