@@ -19,7 +19,7 @@ These React components wrap Leadoo bots and handle all the cleanup and mount/dis
 
 ### Bot Types
 
-Currently only **In-Page** bots are supported (`InPageBot`). These bots are containers that can be placed in content areas.
+Currently **In-Page** (`InPageBot`) and **Visual** (`VisualBot`) bots are supported. These bots are containers that can be placed in content areas.
 
 ### Compatibility
 
@@ -109,6 +109,31 @@ export const MyApp = () => (
 ```
 
 Make sure to read the [Media Partner concept description](#media-partner).
+
+### VisualBot
+
+Visual bot wrapper. Import using `{ VisualBot }`.
+
+Properties:
+
+| Property          | Required  | Default   | Description                           |
+|-------------------|-----------|-----------|---------------------------------------|
+| `code`            | Yes       | _None_    | The bot code (provided by Leadoo).    |
+| `seamless`        |           | `false`   | Whether to run in **seamless** mode or not. |
+
+Usage is straightforward - import the `VisualBot` component and place it in your application using a bot `code`:
+
+```jsx
+import { VisualBot } from "@leadoo/react-bot";
+
+const BOT_CODE = "xyz123";
+
+export const MyApp = () => (
+    <div>
+        <VisualBot code={BOT_CODE} seamless />
+    </div>
+);
+```
 
 ## Concepts
 

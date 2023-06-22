@@ -7,6 +7,12 @@ export interface InPageBotProps {
     seamless?: boolean;
 }
 
+export interface VisualBotProps {
+    code: BotCode;
+    generateScript?: (scriptSrc: string) => HTMLScriptElement;
+    seamless?: boolean;
+}
+
 export interface LeadooWindow extends Window {
     Leadoo: {
         Chat: Object;
