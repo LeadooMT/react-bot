@@ -1,6 +1,6 @@
 {
   "name": "@leadoo/react-bot",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "React components for Leadoo bots",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
