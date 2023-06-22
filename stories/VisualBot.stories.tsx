@@ -3,7 +3,7 @@ import { VisualBot } from "../source/index";
 
 const { useEffect, useState } = React;
 
-const DEMO_CODE = "Xc7Ug0gi";
+const DEMO_CODE = "NAdtaLSe";
 
 export default { title: "VisualBot" };
 
