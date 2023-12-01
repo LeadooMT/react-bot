@@ -1,9 +1,7 @@
-import * as React from "react";
-import { VisualBot } from "../source/index";
+import React, { useEffect, useState } from "react";
+import { VisualBot } from "../source/index.js";
 
-const { useEffect, useState } = React;
-
-const DEMO_CODE = "Xc7Ug0gi";
+const DEMO_CODE = "NAdtaLSe";
 
 export default { title: "VisualBot" };
 

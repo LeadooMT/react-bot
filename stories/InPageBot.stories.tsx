@@ -1,7 +1,5 @@
-import * as React from "react";
-import { InPageBot } from "../source/index";
-
-const { useEffect, useState } = React;
+import React, { useEffect, useState } from "react";
+import { InPageBot } from "../source/index.js";
 
 const DEMO_CODE = "Xc7Ug0gi";
 

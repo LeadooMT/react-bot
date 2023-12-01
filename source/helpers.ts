@@ -1,4 +1,4 @@
-import { LeadooWindow } from "./types";
+import { LeadooWindow } from "./types.js";
 
 declare var window: LeadooWindow;
 

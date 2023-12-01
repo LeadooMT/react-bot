@@ -11,7 +11,7 @@ This UI library provides components and helpers for using [Leadoo](https://leado
 
 ## About
 
-Leadoo bots are complicated JavaScript applications that render complex UI element trees, and they are usually not directly usable within _reactive_ environments such as React. React can update the DOM, removing and moving elements around, many times a second (in extreme cases). Doing so with a Leadoo bot inside could result in large amounts of errors and memory overflow - but this library is designed to handle that.
+Leadoo bots are complex JavaScript applications that render complex UI element trees, and they are usually not directly usable within _reactive_ environments such as React. React can update the DOM, removing and moving elements around, many times a second (in extreme cases). Doing so with a Leadoo bot inside could result in large amounts of errors and memory overflow - but this library is designed to handle that.
 
 These React components wrap Leadoo bots and handle all the cleanup and mount/dismount preparation for you.
 
@@ -23,9 +23,11 @@ Currently **In-Page** (`InPageBot`) and **Visual** (`VisualBot`) bots are suppor
 
 ### Compatibility
 
-These components are designed for the latest version of React, at least version `16.12`.
+These components are designed for the latest version of React, at least version `18.2`.
 
-The bots used within these components are **2nd Generation** - please see your Leadoo contact regarding the version of your bot before using this toolkit.
+The bots used within these components follow internal bot generation configurations - please see your Leadoo contact regarding the version of your bot before using this toolkit.
+
+**Important**: The bots in this library are built using [ESM](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) - They will only work within other ESM environments, or projects with a compatible build phase (Webpack/Rollup etc.). CommonJS exports are no longer supported.
 
 ## Usage
 
@@ -37,14 +39,16 @@ npm install @leadoo/react-bot --save-dev
 
 You can import separate bot components to use in your website:
 
-```jsx
+```tsx
 import { InPageBot } from "@leadoo/react-bot";
 
-export const MyComponent = () => (
-    <div>
-        <InPageBot code="abc123" />
-    </div>
-);
+export function MyComponent() {
+    return (
+        <div>
+            <InPageBot code="abc123" />
+        </div>
+    );
+}
 ```
 
 ### Development
@@ -69,43 +73,47 @@ Properties:
 |-------------------|-----------|-----------|---------------------------------------|
 | `code`            | Yes       | _None_    | The bot code (provided by Leadoo).    |
 | `mediaPartner`    |           | _None_    | Optional Media Partner identifier. Enables Media Partner mode. |
-| `seamless`        |           | `false`   | Whether to run in **seamless** mode or not. |
+| `seamless`        |           | `true`    | Whether to run in **seamless** mode or not. |
 
 Usage is straightforward - import the `InPageBot` component and place it in your application using a bot `code`:
 
-```jsx
+```tsx
 import { InPageBot } from "@leadoo/react-bot";
 
 const BOT_CODE = "xyz123";
 
-export const MyApp = () => (
-    <div>
-        <InPageBot code={BOT_CODE} seamless />
-    </div>
-);
+export function MyApp() {
+    return (
+        <div>
+            <InPageBot code={BOT_CODE} seamless={false} />
+        </div>
+    );
+}
 ```
 
 When using a Media Partner configuration, set the `mediaPartner` property to the Media Partner identifier used in your system:
 
-```jsx
+```tsx
 import { InPageBot } from "@leadoo/react-bot";
 
 const MEDIA_PARTNER = "MyCompany";
 
-function getSectionCode() {
+function getSectionCode(): string {
     return /^\/blog/.test(window.location.pathname)
         ? "blog"
         : "main";
 }
 
-export const MyApp = () => (
-    <div>
-        <InPageBot
-            code={getSectionCode()}
-            mediaPartner={MEDIA_PARTNER}
-        />
-    </div>
-);
+export function MyApp() {
+    return (
+        <div>
+            <InPageBot
+                code={getSectionCode()}
+                mediaPartner={MEDIA_PARTNER}
+            />
+        </div>
+    );
+}
 ```
 
 Make sure to read the [Media Partner concept description](#media-partner).
@@ -123,16 +131,18 @@ Properties:
 
 Usage is straightforward - import the `VisualBot` component and place it in your application using a bot `code`:
 
-```jsx
+```tsx
 import { VisualBot } from "@leadoo/react-bot";
 
 const BOT_CODE = "xyz123";
 
-export const MyApp = () => (
-    <div>
-        <VisualBot code={BOT_CODE} seamless />
-    </div>
-);
+export function MyApp() {
+    return (
+        <div>
+            <VisualBot code={BOT_CODE} seamless />
+        </div>
+    );
+}
 ```
 
 ## Concepts

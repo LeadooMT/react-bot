@@ -1,8 +1,6 @@
-import * as React from "react";
-import { BotCode, VisualBotProps } from "./types";
-import { destroyBot, generateAPIName, generateScript as _generateScript } from "./helpers";
-
-const { useEffect, useRef, useState } = React;
+import React, { useEffect, useRef, useState } from "react";
+import { destroyBot, generateAPIName, generateScript as _generateScript } from "./helpers.js";
+import { BotCode, VisualBotProps } from "./types.js";
 
 const NOOP = () => {};
 const PATH_STANDARD = "/bot/visual.js?code=";
@@ -45,7 +43,7 @@ export function VisualBot(props: VisualBotProps) {
         }
         return () => {
             // Unmount
-            destroyBot(apiName).catch(err => {
+            destroyBot(apiName).catch((err) => {
                 console.error("Failed cleaning up bot:", err);
             });
             // Reset API name

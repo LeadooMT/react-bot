@@ -1,3 +1,3 @@
-export { InPageBot } from "./InPageBot";
-export { VisualBot } from "./VisualBot";
-export * from "./types";
+export { InPageBot } from "./InPageBot.jsx";
+export { VisualBot } from "./VisualBot.jsx";
+export * from "./types.js";

@@ -1,5 +1,10 @@
 # React Bots Changelog
 
+## v0.3.0
+_2023-06-22_
+
+ * Visual bot support
+
 ## v0.2.1
 _2020-08-25_
 
