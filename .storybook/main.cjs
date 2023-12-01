@@ -34,19 +34,6 @@ async function handleWebpack(config, {
             test: /\.tsx?$/,
             exclude: /(node_modules|dist)/,
             use: [
-                // {
-                //     loader: "babel-loader",
-                //     options: {
-                //         presets: [
-                //             "@babel/preset-react",
-                //             ["@babel/preset-env", {
-                //                 "targets": "> 0.5%, not dead",
-                //                 "modules": "commonjs",
-                //                 "useBuiltIns": false
-                //             }]
-                //         ]
-                //     }
-                // },
                 {
                     loader: "ts-loader"
                 }
