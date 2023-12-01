@@ -1,8 +1,6 @@
-import * as React from "react";
-import { BotCode, InPageBotProps } from "./types";
-import { destroyBot, generateAPIName, generateScript as _generateScript } from "./helpers";
-
-const { useEffect, useRef, useState } = React;
+import React, { useEffect, useRef, useState } from "react";
+import { destroyBot, generateAPIName, generateScript as _generateScript } from "./helpers.js";
+import { BotCode, InPageBotProps } from "./types.js";
 
 const NOOP = () => {};
 const PATH_MP = "/bot/mp/inpage.js?code=";
@@ -13,7 +11,7 @@ function getBotURL(
     code: BotCode,
     apiName: string,
     seamless: boolean,
-    mediaPartner: string
+    mediaPartner: string,
 ): string {
     let url: string;
     if (mediaPartner) {
@@ -55,7 +53,7 @@ export function InPageBot(props: InPageBotProps) {
         }
         return () => {
             // Unmount
-            destroyBot(apiName).catch(err => {
+            destroyBot(apiName).catch((err) => {
                 console.error("Failed cleaning up bot:", err);
             });
             // Reset API name

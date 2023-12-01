@@ -1,7 +1,5 @@
-import * as React from "react";
-import { VisualBot } from "../source/index";
-
-const { useEffect, useState } = React;
+import React, { useEffect, useState } from "react";
+import { VisualBot } from "../source/index.js";
 
 const DEMO_CODE = "NAdtaLSe";
 
