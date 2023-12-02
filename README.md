@@ -27,7 +27,7 @@ These components are designed for the latest version of React, at least version 
 
 The bots used within these components follow internal bot generation configurations - please see your Leadoo contact regarding the version of your bot before using this toolkit.
 
-**Important**: The bots in this library are built using [ESM](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) - They will only work within other ESM environments, or projects with a compatible build phase (Webpack/Rollup etc.). CommonJS exports are no longer supported.
+**Important**: The modules in this library are built using [ESM](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) - They will only work within other ESM environments, or projects with a compatible build phase (Webpack/Rollup etc.). CommonJS exports are no longer supported.
 
 ## Usage
 

@@ -1,5 +1,11 @@
 # React Bots Changelog
 
+## v0.4.0
+_2023-12-02_
+
+ * New build with Typescript
+ * ESM only
+
 ## v0.3.0
 _2023-06-22_
 
