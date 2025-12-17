@@ -1,5 +1,10 @@
 # React Bots Changelog
 
+## v0.5.0
+_2025-12-17_
+
+ * Add node 24 support
+
 ## v0.4.0
 _2023-12-02_
 
