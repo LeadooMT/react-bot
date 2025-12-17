@@ -108,5 +108,9 @@
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "overrides": {
+    "cross-spawn": "^7.0.6",
+    "esbuild": "^0.25.0"
   }
 }
