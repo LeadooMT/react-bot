@@ -1,5 +1,10 @@
 # React Bots Changelog
 
+## v0.7.0
+_2026-01-27_
+
+ * Fix vulnerabilities, update dependencies
+
 ## v0.6.0
 _2026-01-09_
 
