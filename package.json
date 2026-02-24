@@ -111,6 +111,7 @@
   },
   "overrides": {
     "cross-spawn": "^7.0.6",
+    "minimatch": "^10.2.1",
     "esbuild": "^0.25.0"
   }
 }
