@@ -110,6 +110,7 @@
     "react-dom": "^18.2.0"
   },
   "overrides": {
-    "cross-spawn": "^7.0.6"
+    "cross-spawn": "^7.0.6",
+    "js-yaml": "4.2.0"
   }
 }
