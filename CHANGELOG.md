@@ -1,5 +1,10 @@
 # React Bots Changelog
 
+## v0.9.5
+_2026-06-25_
+
+ * Replace jest with vitest
+
 ## v0.9.4
 _2026-06-25_
 
