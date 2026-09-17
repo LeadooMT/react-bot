@@ -1,5 +1,11 @@
 # React Bots Changelog
 
+## v0.10.1
+_2026-08-31_
+
+ * Fix vulnerabilities
+ * Update dependencies, major react version
+
 ## v0.9.7
 _2026-08-31_
 
