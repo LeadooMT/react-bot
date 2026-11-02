@@ -53,7 +53,7 @@ export function MyComponent() {
 
 ### Development
 
-Once cloned, execute `npm install` in the root of this project using at least NodeJS version 10.
+Once cloned, execute `npm install` in the root of this project using NodeJS version 26 or later.
 
 You can develop on this repository, having the files watched for changes, by running `npm run dev`. To build a production copy in the `dist` directory, run `npm run build`. You can run the tests by executing `npm test`.
 

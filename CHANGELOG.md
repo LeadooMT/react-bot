@@ -1,5 +1,11 @@
 # React Bots Changelog
 
+## v0.11.0
+_2026-11-02_
+
+ * Fix vulnerabilities
+ * Update dependencies, replace storybook webpack with vite
+
 ## v0.10.1
 _2026-08-31_
 

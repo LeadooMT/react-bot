@@ -6,8 +6,9 @@
         "forceConsistentCasingInFileNames": true,
         "jsx": "react",
         "outDir": "./dist",
+        "rootDir": "./source",
         "module": "ES2020",
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "declaration": true,
         "strict": false,
         "target": "ES2020"
